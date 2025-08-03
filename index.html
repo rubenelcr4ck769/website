@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Undertale & Deltarune Fans</title>
+
+  <!-- AQUI BB SE COLOCA UN SCRIPT PARA CONECTARSE AL SITIO WEB DE LA BASE DE DATOS NO LA BORRES BB PQ SE CHINGA-->
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+
+  <style>
+    body {
+      background-color: #111;
+      color: #fff;
+      font-family: 'Courier New', monospace;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #222;
+      padding: 20px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2em;
+    }
+    nav {
+      background: #333;
+      display: flex;
+      justify-content: center;
+      padding: 10px 0;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    .section {
+      padding: 20px;
+      max-width: 800px;
+      margin: auto;
+    }
+    .comment-box {
+      background: #222;
+      padding: 15px;
+      border-radius: 10px;
+    }
+    textarea {
+      width: 100%;
+      height: 80px;
+      border: none;
+      padding: 10px;
+      font-family: monospace;
+      margin-bottom: 10px;
+      resize: none;
+    }
+    button {
+      background-color: #444;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+    }
+    .comment {
+      background: #1a1a1a;
+      padding: 10px;
+      margin-top: 10px;
+      border-left: 4px solid #666;
+    }
+  </style>
+</head>
+<body>
+
+
+  <!-- AQUI ES PA PONER EL ENCABEZADO TODO PRO DE RUBEN EL CRACK -->
+  <header>
+    <h1>🌟 Undertale & Deltarune 🌟</h1>
+  </header>
+
+
+  <!-- AQUI ESTA EL APARTADO PARA LOS COMENTARIOS --> 
+
+  <div class="section">
+    <h2>Comentarios</h2>
+    <div class="comment-box">
+      <textarea id="comentario" placeholder="Escribe tu comentario aquí..."></textarea>
+      <button id="publicar-btn">Publicar</button>
+    </div>
+    <div id="comentarios-lista"></div>
+  </div>
+<!-- AQUI TERMINA ASI QUE CUIDADO CON ESTA PARTE-->
+  <nav>
+    <a href="#inicio">Inicio</a>
+    <a href="#personajes">Personajes</a>
+    <a href="#comentarios">Comentarios</a>
+  </nav>
+
+  <div id="inicio" class="section">
+    <h2>Bienvenido</h2>
+    <p>Esta es una página de fans dedicada a los juegos Undertale y Deltarune, creados por Toby Fox. Hecha por kmilo medoza y Ruben ignacio.</p>
+  </div>
+
+  <div id="personajes" class="section">
+    <h2>Personajes Destacados</h2>
+    <ul>
+      <li>Sans</li> <img src="imagenes\sans.png" alt= "sans" width="150" height="150">
+      <li>Frisk</li> <img src="imagenes/frisk1.PNG" alt= "frisk1" width="150" height="150">
+      <li>Papyrus</li> <img src="imagenes/papyrus.jpg" alt= "papyrus"  width="150" height="150">
+      <li>Kris</li> <img src="imagenes/kris.webp" alt= "kris" width="150" height="150">
+      <li>Ralsei</li> <img src="imagenes/ralsei.webp" alt= "realsei" width="150" height="150">
+      <li>Susie</li> <img src="imagenes/susie.jpg" alt="susie" width="150" height="150">
+    </ul>
+  </div>
+
+
+  <!-- AQUIIIIIIIII APARTIR ESTE SEGMENTO LLAMADO SECRIPT ES PARA PODER ALMACENAR TOOOODOOOO LO DE LA BASE 
+   
+  ASI QUE CUIDADO CON MODIFICAR ESTO BB PQ TE CHINGAS TU PAGINA WEB -->
+
+  <script>
+    
+    const firebaseConfig = {
+      apiKey: "AIzaSyCt7bQO-WAKxxtGRMrRRQ-JEgB9XQARTSU",
+      authDomain: "undertale-web.firebaseapp.com",
+      projectId: "undertale-web",
+      storageBucket: "undertale-web.firebasestorage.app",
+      messagingSenderId: "382838862726",
+      appId: "1:382838862726:web:bef77076da1fca2af6f207"
+    };
+
+    
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+
+
+    async function publicarComentario() {
+      const texto = document.getElementById("comentario").value.trim();
+      if (texto !== "") {
+        await db.collection("comentarios").add({
+          texto: texto,
+          fecha: new Date()
+        });
+        document.getElementById("comentario").value = "";
+      }
+    }
+
+    
+    
+function mostrarComentarios() {
+  const lista = document.getElementById("comentarios-lista");
+  db.collection("comentarios").orderBy("fecha", "desc").onSnapshot(snapshot => {
+    lista.innerHTML = "";  // Limpiar la lista antes de agregar nuevos comentarios
+    snapshot.forEach(doc => {
+      const div = document.createElement("div");
+      div.className = "comment";
+      div.textContent = doc.data().texto;  
+      lista.appendChild(div);  
+    });
+  });
+}
+
+    
+    document.getElementById("publicar-btn").addEventListener("click", publicarComentario);
+    mostrarComentarios();
+  </script>
+
+</body>
+</html>
