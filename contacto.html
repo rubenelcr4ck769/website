@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto - Ruben</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #121212;
+      color: #e0e0e0;
+      scroll-behavior: smooth;
+    }
+
+    /* NAVBAR */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: #1e1e1e;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.5rem 1rem;
+      z-index: 1000;
+    }
+    .logo {
+      background: #cfd8dc;
+      color: #000;
+      font-weight: bold;
+      font-size: 1rem;
+      padding: 6px 12px;
+      border-radius: 6px;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: bold;
+      font-size: 0.95rem;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover {
+      color: #bb86fc;
+    }
+
+    /* HAMBURGUESA */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      background: #fff;
+      border-radius: 5px;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 60px;
+        right: 10px;
+        background: #1e1e1e;
+        flex-direction: column;
+        gap: 0;
+        border-radius: 8px;
+        overflow: hidden;
+      }
+      .nav-links a {
+        padding: 10px 20px;
+        border-bottom: 1px solid #333;
+      }
+      .nav-links.show {
+        display: flex;
+      }
+      .hamburger {
+        display: flex;
+      }
+    }
+
+    /* Contenido */
+    .content {
+      padding-top: 80px;
+      max-width: 600px;
+      margin: 0 auto;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    h1 {
+      color: #bb86fc;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    p.intro {
+      text-align: center;
+      color: #ccc;
+      font-size: 1rem;
+      margin-bottom: 30px;
+    }
+
+    strong {
+      color: #bb86fc;
+    }
+
+    form {
+      background: #1e1e1e;
+      padding: 20px;
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    label {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    input, textarea {
+      padding: 10px;
+      border-radius: 8px;
+      border: none;
+      background: #292929;
+      color: #fff;
+      font-size: 1rem;
+      width: 100%;
+      resize: vertical;
+    }
+
+    input:focus, textarea:focus {
+      outline: 2px solid #bb86fc;
+    }
+
+    button {
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      background: #bb86fc;
+      color: #111;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #9a67ea;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <div class="logo">RUBEN</div>
+    <div class="hamburger" id="hamburger">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <div class="nav-links" id="nav-links">
+      <a href="index.html">Inicio</a>
+      <a href="proyectos.html">Mi Juego</a>
+      <a href="Sobremi.html">Sobre mí</a>
+      <a href="contacto.html">Contacto</a>
+      
+    </div>
+  </nav>
+
+  <!-- CONTENIDO -->
+  <div class="content">
+    <h1>Contacto</h1>
+    <p class="intro">
+      ¿Quieres que colaboremos en tus proyectos?  
+      Escríbeme un mensaje o envíame un correo a:  
+      <strong>lobstergamestuidios@gmail.com</strong>
+    </p>
+
+   
+  </div>
+
+  <!-- SCRIPT HAMBURGUESA -->
+  <script>
+    const hamburger = document.getElementById("hamburger");
+    const navLinks = document.getElementById("nav-links");
+
+    hamburger.addEventListener("click", () => {
+      navLinks.classList.toggle("show");
+    });
+
+    navLinks.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("show");
+      });
+    });
+  </script>
+
+</body>
+</html>

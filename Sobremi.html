@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sobre mí - Ruben</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #121212;
+      color: #e0e0e0;
+      scroll-behavior: smooth;
+    }
+
+    /* NAVBAR */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: #1e1e1e;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.5rem 1rem;
+      z-index: 1000;
+    }
+    .logo {
+      background: #cfd8dc;
+      color: #000;
+      font-weight: bold;
+      font-size: 1rem;
+      padding: 6px 12px;
+      border-radius: 6px;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: bold;
+      font-size: 0.95rem;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover {
+      color: #bb86fc;
+    }
+
+    /* HAMBURGUESA */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      background: #fff;
+      border-radius: 5px;
+    }
+
+    /* Menú móvil */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 60px;
+        right: 10px;
+        background: #1e1e1e;
+        flex-direction: column;
+        gap: 0;
+        border-radius: 8px;
+        overflow: hidden;
+      }
+      .nav-links a {
+        padding: 10px 20px;
+        border-bottom: 1px solid #333;
+      }
+      .nav-links.show {
+        display: flex;
+      }
+      .hamburger {
+        display: flex;
+      }
+    }
+
+    /* Contenido */
+    .content {
+      padding-top: 80px; /* Para que no quede debajo de navbar */
+      max-width: 800px;
+      margin: 0 auto;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    .profile {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .profile img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      border: 3px solid #bb86fc;
+      object-fit: cover;
+      margin-bottom: 20px;
+    }
+
+    .profile h1 {
+      color: #bb86fc;
+      margin-bottom: 10px;
+      font-size: 2.5rem;
+    }
+
+    .profile a {
+      display: inline-block;
+      padding: 10px 24px;
+      border-radius: 8px;
+      background: #bb86fc;
+      color: #111;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .profile a:hover {
+      background: #9a67ea;
+    }
+
+    section {
+      background: #1e1e1e;
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+    }
+
+    section h2 {
+      color: #bb86fc;
+      margin-bottom: 10px;
+    }
+
+    section p {
+      color: #ccc;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <div class="logo">RUBEN</div>
+    <div class="hamburger" id="hamburger">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <div class="nav-links" id="nav-links">
+      <a href="index.html">Inicio</a>
+      <a href="proyectos.html">Proyectos</a>
+      <a href="Sobremi.html">Sobre mí</a>
+      <a href="contacto.html">Contacto</a>
+      
+    </div>
+  </nav>
+
+  <!-- CONTENIDO -->
+  <div class="content">
+    <!-- FOTO Y ENLACE -->
+    <div class="profile" id="sobre-mi">
+      <img src="imagenes/yo.PNG" alt="Foto de Ruben">
+      <h1>Ruben Ignacio</h1>
+      <a href="https://www.instagram.com/ruben_cruz.cpp/" target="_blank">Instagram</a>
+    </div>
+
+    <!-- SOBRE MÍ -->
+    <section>
+      <h2>Sobre mí</h2>
+      <p>Soy Ruben Programador y desarrollador de videojuegos me gusta realizar 
+        pequeños proyectos y juegos para subirlos a mi canal de youtube.</p>
+    </section>
+
+    <!-- BIOGRAFÍA -->
+    <section>
+      <h2>Biografía</h2>
+      <p>Naci en veracruz Mexico el 30 de mayo, desde pequeño siempre me gusto la tecnologia.
+        Mi primer consola y acercamiento a los videojuegos fue con una xbox 360
+        Mi primer acercamiento a la programacion fue con un curso de html a los 10 años</p>
+    </section>
+
+    <!-- ESTUDIOS -->
+    <section>
+      <h2>Estudios</h2>
+      <p>Bachillerato: CONALEP VERACRUZ PTB.Informatica (2023-Actualidad).</p>
+    </section>
+  </div>
+
+  <!-- SCRIPT HAMBURGUESA -->
+  <script>
+    const hamburger = document.getElementById("hamburger");
+    const navLinks = document.getElementById("nav-links");
+
+    hamburger.addEventListener("click", () => {
+      navLinks.classList.toggle("show");
+    });
+
+    // Cierra el menú al hacer clic en un enlace
+    navLinks.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("show");
+      });
+    });
+  </script>
+
+</body>
+</html>
