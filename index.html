@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Portfolio - Ruben Ignacio</title>
 
+<meta name="description" content="Portfolio de Ruben Ignacio, desarrollador web y de videojuegos">
+
 <style>
 
 body{
@@ -99,6 +101,12 @@ section{
 padding:60px 20px;
 max-width:1000px;
 margin:auto;
+animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn{
+from{opacity:0; transform:translateY(20px);}
+to{opacity:1; transform:translateY(0);}
 }
 
 h1,h2{
@@ -154,6 +162,12 @@ background:#1e1e1e;
 border-radius:12px;
 overflow:hidden;
 width:300px;
+transition:transform 0.3s, box-shadow 0.3s;
+}
+
+.juego-card:hover{
+transform:translateY(-5px);
+box-shadow:0 0 15px #bb86fc;
 }
 
 .juego-card img{
@@ -246,11 +260,20 @@ He trabajado en el desarrollo de páginas web para clientes reales logrando resu
 <div class="cards">
 
 <div class="juego-card">
-<img src="imagenes/pong.PNG">
+<img src="imagenes/pong.PNG" alt="Juego Pong">
 <div style="padding:15px">
 <h3>PONG</h3>
 <p>El clásico Pong desarrollado para móvil.</p>
 <a class="btn" href="https://play.google.com/store/apps/details?id=com.clecloespindola.pongmobile" target="_blank">Ver juego</a>
+</div>
+</div>
+
+<div class="juego-card">
+<img src="imagenes/pixel_generator.png" alt="Pixel Generator">
+<div style="padding:15px">
+<h3>Pixel Generator</h3>
+<p>Generador de imágenes a pixel art de forma automática.</p>
+<a class="btn" href="https://lobster-game-studios.itch.io/pixel-generator" target="_blank">Ver proyecto</a>
 </div>
 </div>
 
@@ -273,7 +296,8 @@ Desarrollo de páginas web utilizando HTML creando interfaces modernas, funciona
 <p>
 ✔ Desarrollo de páginas web personalizadas<br>
 ✔ Interfaces modernas y responsivas<br>
-✔ Cliente satisfecho con el resultado final
+✔ Cliente satisfecho con el resultado final<br>
+✔ Desarrollo de software simple en Python para Windows y Linux
 </p>
 
 </div>
@@ -291,7 +315,7 @@ Desarrollo de páginas web utilizando HTML creando interfaces modernas, funciona
 </a>
 
 <a href="https://isocpp.org/" target="_blank">
-<img src="imagenes/ISO_C++_Logo.svg (1).png" alt="C++">
+<img src="imagenes/ISO_Cpp_Logo.png" alt="C++">
 </a>
 
 <a href="https://developer.mozilla.org/es/docs/Web/HTML" target="_blank">
@@ -325,12 +349,12 @@ Mi primera consola fue una Xbox 360 y mi primer acercamiento a la programación 
 <h2>Estudios</h2>
 
 <p>
-Bachillerato: CONALEP Veracruz
+Bachillerato: CONALEP Veracruz<br>
 PTB en Informática (2023 - Actualidad)
 </p>
 
 <p>
-Certificado: <b>Curso de Programación Orientado a Robótica en Arduino</b>
+Certificado: <b>Curso de Programación Orientado a Robótica en Arduino</b><br>
 Año: 2025
 </p>
 
