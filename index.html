@@ -7,6 +7,9 @@
 
 <meta name="description" content="Portfolio de Ruben Ignacio, desarrollador web y de videojuegos">
 
+<!-- Icono de la pestaña: emoji de langosta -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦞</text></svg>">
+
 <style>
 
 body{
@@ -157,6 +160,28 @@ width:260px;
 text-align:center;
 }
 
+/* Experiencia: tarjetas en horizontal */
+.cards-exp{
+display:flex;
+flex-wrap:wrap;
+gap:20px;
+justify-content:center;
+align-items:stretch;
+}
+
+.cards-exp .card{
+flex:1 1 260px;
+max-width:300px;
+width:auto;
+box-sizing:border-box;
+}
+
+.card-ancha{
+width:auto;
+max-width:none;
+margin-top:20px;
+}
+
 .juego-card{
 background:#1e1e1e;
 border-radius:12px;
@@ -172,6 +197,26 @@ box-shadow:0 0 15px #bb86fc;
 
 .juego-card img{
 width:100%;
+}
+
+/* Imagen de Arduino dentro de la tarjeta */
+.juego-card img.logo-img{
+width:auto;
+max-width:70%;
+height:140px;
+object-fit:contain;
+display:block;
+margin:20px auto 0;
+}
+
+/* Emoji como imagen */
+.emoji-img{
+height:160px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:90px;
+background:#2a2a2a;
 }
 
 .lenguajes-grid{
@@ -270,7 +315,6 @@ He trabajado en el desarrollo de páginas web para clientes reales logrando resu
 </div>
 
 <div class="juego-card">
-<img src="imagenes/pixel_generator.png" alt="Pixel Generator">
 <div style="padding:15px">
 <h3>Pixel Generator</h3>
 <p>Generador de imágenes a pixel art de forma automática.</p>
@@ -279,7 +323,7 @@ He trabajado en el desarrollo de páginas web para clientes reales logrando resu
 </div>
 
 <div class="juego-card">
-<img src="imagenes/timbre_arduino.png" alt="Timbre Automático con Arduino">
+<img class="logo-img" src="imagenes/arduino.png" alt="Timbre Automático con Arduino">
 <div style="padding:15px">
 <h3>Timbre Automático con Arduino</h3>
 <p>Sistema de timbre automático programado con Arduino, diseñado para activarse en horarios establecidos sin intervención manual.</p>
@@ -287,7 +331,7 @@ He trabajado en el desarrollo de páginas web para clientes reales logrando resu
 </div>
 
 <div class="juego-card">
-<img src="imagenes/lobster_os.png" alt="Lobster OS">
+<div class="emoji-img">🦞</div>
 <div style="padding:15px">
 <h3>Lobster OS</h3>
 <p>Escritorio virtual web con tareas, calendario, notas y temporizador de enfoque (Pomodoro), todo guardado automáticamente.</p>
@@ -303,7 +347,9 @@ He trabajado en el desarrollo de páginas web para clientes reales logrando resu
 
 <h2>Experiencia</h2>
 
-<div class="card" style="margin:auto">
+<div class="cards-exp">
+
+<div class="card">
 
 <h3>Desarrollador Web Freelance</h3>
 
@@ -320,12 +366,37 @@ Desarrollo de páginas web utilizando HTML creando interfaces modernas, funciona
 
 </div>
 
-<div class="card" style="margin:20px auto 0">
+<div class="card">
+
+<h3>Software publicado en Google Play</h3>
+
+<p>
+Desarrollo y publicación de aplicaciones móviles en Google Play, como el clásico Pong para móvil.
+</p>
+
+<a class="btn" href="https://play.google.com/store/apps/details?id=com.clecloespindola.pongmobile" target="_blank">Ver en Google Play</a>
+
+</div>
+
+<div class="card">
 
 <h3>Timbre Automático con Arduino</h3>
 
 <p>
 Un cliente adquirió el timbre automático desarrollado con Arduino y se llevó a cabo la instalación en una escuela, donde actualmente funciona marcando los horarios de manera automática.
+</p>
+
+</div>
+
+</div>
+
+<div class="card card-ancha">
+
+<h3>Clientes</h3>
+
+<p>
+✔ Clientes de páginas web personalizadas, satisfechos con el resultado final<br>
+✔ Escuela con timbre automático Arduino instalado y funcionando
 </p>
 
 </div>
@@ -343,11 +414,15 @@ Un cliente adquirió el timbre automático desarrollado con Arduino y se llevó 
 </a>
 
 <a href="https://isocpp.org/" target="_blank">
-<img src="imagenes/ISO_Cpp_Logo.png" alt="C++">
+<img src="ISO_C%2B%2B_Logo.svg%20(1).png" alt="C++">
 </a>
 
 <a href="https://developer.mozilla.org/es/docs/Web/HTML" target="_blank">
 <img src="imagenes/html.png" alt="HTML">
+</a>
+
+<a href="https://developer.mozilla.org/es/docs/Web/CSS" target="_blank">
+<img src="imagenes/css.png" alt="CSS">
 </a>
 
 <a href="https://www.arduino.cc/" target="_blank">
